@@ -1,6 +1,12 @@
-/**
- * Created by logic on 10/12/16.
- */
-const requireTest = require('./scripts/RequireTest')
-console.log(requireTest.test)
-console.log((_ => 'es6 please')())
+window.init = function () {
+  const stage = new createjs.Stage("game")
+  var circle = new createjs.Shape();
+  circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+  circle.x = 100;
+  circle.y = 100;
+  stage.addChild(circle);
+
+  stage.update()
+}
+
+console.log("So new")
