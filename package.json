@@ -4,17 +4,22 @@
   "description": "This is a program that give the user and idea of how big different types of stars are when compared to the earth and sun.",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d dist && npm run build:html && npm run build:css",
+    "build": "webpack && npm run build:html && npm run build:css",
     "build:html": "cp ./src/*.html ./dist/",
     "build:css": "cp ./src/*.css ./dist/",
+    "webpack": "webpack",
+    "webpack:watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Russell Murray",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
-    "eslint": "^3.7.1"
+    "eslint": "^3.7.1",
+    "webpack": "^1.13.2"
   },
   "dependencies": {}
 }
