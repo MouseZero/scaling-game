@@ -11,7 +11,7 @@ module.exports ={
       "name": "Earth",
       "type": "earth",
       "size": 0.0092,
-      "color": ""
+      "color": "#363"
     }
   ],
 
