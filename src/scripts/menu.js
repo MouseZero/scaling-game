@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-module.exports = function(celestialBodyData){
+module.exports = function (celestialBodyData) {
   console.log(celestialBodyData.rulers[0].name)
   ReactDOM.render(
     <Menu bodyData={celestialBodyData.showcase} test='test prop' />,
@@ -9,8 +9,8 @@ module.exports = function(celestialBodyData){
   )
 }
 
-function Menu(props){
-  return(
+function Menu (props) {
+  return (
     <div className='dropdown'>
       <MenuButton />
       <MenuDropdown bodyData={props.bodyData} />
@@ -18,19 +18,19 @@ function Menu(props){
   )
 }
 
-function MenuButton(){
+function MenuButton () {
   return (
     <button
       className='dropdown-toggle btn btn-primary'
-      type="button"
-      data-toggle="dropdown">
+      type='button'
+      data-toggle='dropdown'>
       Button
     </button>
   )
 }
 
-function MenuDropdown(props){
-  return(
+function MenuDropdown (props) {
+  return (
     <ul className='dropdown-menu'>
       {props.bodyData.map((x, i) =>
         <Item data={x.name} key={i} />
@@ -39,7 +39,7 @@ function MenuDropdown(props){
   )
 }
 
-function Item(props){
+function Item (props) {
   return (
     <li>{props.data}</li>
   )
