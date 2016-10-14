@@ -33,7 +33,10 @@ function MenuDropdown (props) {
   return (
     <ul className='dropdown-menu'>
       {props.bodyData.map((x, i) =>
-        <Item data={x.name} key={i} />
+        <span key={i}>
+          { console.log('key ' + i) }
+          <Item data={x.name} bodyId={i} />
+        </span>
       )}
     </ul>
   )
@@ -41,6 +44,12 @@ function MenuDropdown (props) {
 
 function Item (props) {
   return (
-    <li>{props.data}</li>
+    <li onClick={testCallback(props.bodyId)}>{props.data}</li>
   )
+}
+
+function testCallback (string) {
+  return () => {
+    console.log('pressed ' + string)
+  }
 }
