@@ -12,6 +12,7 @@ function createACelestialBody (bodyInfo, maxSize, canvasSize) {
   const size = scaler.solarSizeCompare(bodyInfo.size, maxSize, canvasSize)
   body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, size)
   body.solarSize = bodyInfo.size
+  body.homePos = scaler.bodyHomePosition(bodyInfo.size, maxSize, canvasSize)
   return body
 }
 
