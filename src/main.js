@@ -4,16 +4,24 @@ const CANVAS_SIZE = 1000
 const createMenu = require('./scripts/menu')
 
 window.init = function () {
-  createMenu()
-  const bodies = createBodies()
+  const celestialBodyData = require('./data/data')
+  createMenu(celestialBodyData)
+  canvasDisplay(celestialBodyData)
+}
+
+function canvasDisplay(celestialBodyData){
+  const bodies = createBodies(celestialBodyData)
   const stage = new createjs.Stage('game')
   placeBodies(stage, bodies)
   stage.update()
 }
 
-function createBodies(){
-  const data = require('./data/data')
-  const selection = [data.rulers[1], data.rulers[0], data.showcase[3]]
+function createBodies(celestialBodyData){
+  const selection = [
+    celestialBodyData.rulers[1],
+    celestialBodyData.rulers[0],
+    celestialBodyData.showcase[3]
+  ]
   return createCelestialBody(selection, CANVAS_SIZE)
 }
 
