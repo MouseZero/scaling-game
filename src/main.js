@@ -8,7 +8,7 @@ window.init = function () {
   const selection = [data.rulers[1], data.rulers[0], data.showcase[2]]
   const bodies = selection.map(function (elem) {
     return createCelestialBody(elem, maxBodySize(selection), CANVAS_SIZE)
-  }).reverse()
+  }).sort(compareDataSize)
 
   console.log(bodies)
 
@@ -24,8 +24,13 @@ window.init = function () {
 
 }
 
-function maxBodySize (bodies) {
+function maxBodySize(bodies) {
   return bodies.reduce(function (prev, elem) {
     return (prev > elem.size) ? prev : elem.size
   }, 0)
+}
+
+function compareDataSize(a, b){
+  console.log('called compare')
+  return b.solarSize - a.solarSize
 }
