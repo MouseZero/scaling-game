@@ -1,9 +1,35 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-module.exports = function(){
+module.exports = function(celestialBodyData){
+  console.log(celestialBodyData.rulers[0].name)
   ReactDOM.render(
-    <h1>Hello, world!</h1>,
+    <Menu bodyData={celestialBodyData.showcase} test='test prop' />,
     document.getElementById('react-navbar')
+  )
+}
+
+function Menu(props){
+  return(
+    <div>
+      <MenuButton />
+      <MenuDropdown bodyData={props.bodyData} />
+    </div>
+  )
+}
+
+function MenuButton(){
+  return (
+    <div>
+      Menu Button
+    </div>
+  )
+}
+
+function MenuDropdown(props){
+  return(
+    <div>
+      Menu Dropdown
+    </div>
   )
 }
