@@ -11,7 +11,7 @@ module.exports = function(celestialBodyData){
 
 function Menu(props){
   return(
-    <div>
+    <div className='dropdown'>
       <MenuButton />
       <MenuDropdown bodyData={props.bodyData} />
     </div>
@@ -20,16 +20,27 @@ function Menu(props){
 
 function MenuButton(){
   return (
-    <div>
-      Menu Button
-    </div>
+    <button
+      className='dropdown-toggle btn btn-primary'
+      type="button"
+      data-toggle="dropdown">
+      Button
+    </button>
   )
 }
 
 function MenuDropdown(props){
   return(
-    <div>
-      Menu Dropdown
-    </div>
+    <ul className='dropdown-menu'>
+      {props.bodyData.map((x, i) =>
+        <Item data={x.name} key={i} />
+      )}
+    </ul>
+  )
+}
+
+function Item(props){
+  return (
+    <li>{props.data}</li>
   )
 }
