@@ -4,7 +4,7 @@
   "description": "This is a program that give the user and idea of how big different types of stars are when compared to the earth and sun.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack && npm run build:html && npm run build:css",
+    "build": "npm run build:html && npm run build:css && webpack",
     "build:html": "cp ./src/*.html ./dist/",
     "build:css": "cp ./src/*.css ./dist/",
     "webpack": "webpack",
