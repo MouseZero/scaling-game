@@ -1,8 +1,10 @@
 const createCelestialBody = require('./scripts/createCelestialBody')
 const scaler = require('./scripts/scaler')
 const CANVAS_SIZE = 1000
+const createMenu = require('./scripts/menu')
 
 window.init = function () {
+  createMenu()
   const bodies = createBodies()
   const stage = new createjs.Stage('game')
   placeBodies(stage, bodies)

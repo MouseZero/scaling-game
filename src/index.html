@@ -1,12 +1,45 @@
  <!DOCTYPE html>
  <html>
      <head>
+         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+         <link rel="stylesheet" type="text/css" href="./style.css">
          <script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
          <script src="./game.bundle.js" charset="utf-8"></script>
-         <link rel="stylesheet" type="text/css" href="./style.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
          <meta charset="utf-8">
      </head>
      <body onload="init();">
-         <canvas id='game' width='1000' height='1000'></canvas>
+
+       <!-- Nav Bar -->
+       <nav class="navbar navbar-fixed-top">
+         <div class="dropdown">
+           <button id="navButton"
+             class="title dropdown-toggle"
+             type="button"
+             id="dropdownMenu1"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="true">
+               <i class='glyphicon-th-list glyphicon' style="margin-left: 0.2em"></i>
+               <span class='hidden-xs'>&nbsp;</span>
+               <span class=' hidden-md  hidden-sm  hidden-xs text-center'>Menu&nbsp;</span>
+           </button>
+           <!-- Dropdown Menu -->
+           <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li class="divider"></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+         </div>
+       </nav>
+
+      <!-- Canvas -->
+      <canvas id='game' width='1000' height='1000'></canvas>
+
+      <!-- React -->
+      <div id="example"></div>
      </body>
  </html>
