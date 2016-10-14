@@ -1,4 +1,5 @@
 const scaler = require('./scaler')
+const createjs = require('createjs-collection')
 
 module.exports = function(selection, canvasSize){
   return selection.map(function (elem) {

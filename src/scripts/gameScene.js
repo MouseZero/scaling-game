@@ -1,4 +1,5 @@
 const createCelestialBody = require('./createCelestialBody')
+const createjs = require('createjs-collection')
 const CANVAS_SIZE = 1000
 
 function canvasDisplay(celestialBodyData){

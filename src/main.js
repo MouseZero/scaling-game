@@ -5,8 +5,8 @@ const createjs = require('createjs-collection')
 window.init = function () {
   const celestialBodyData = require('./data/data')
   createMenu(celestialBodyData)
-  //canvasDisplay(celestialBodyData)
-  test()
+  canvasDisplay(celestialBodyData)
+  // test()
 }
 
 function test(){
