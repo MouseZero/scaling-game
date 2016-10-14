@@ -1,6 +1,7 @@
 const createCelestialBody = require('./createCelestialBody')
 const createjs = require('createjs-collection')
 const CANVAS_SIZE = 1000
+const animation = require('./animation')
 
 function canvasDisplay (celestialBodyData) {
   const stage = new createjs.Stage('game')
@@ -11,6 +12,9 @@ function canvasDisplay (celestialBodyData) {
 function postNewScene (stage, celestialBodyData, showcaseBodyId) {
   const bodies = createBodies(celestialBodyData, showcaseBodyId)
   placeBodies(stage, bodies)
+
+  createjs.Ticker.setFPS(30)
+  createjs.Ticker.addEventListener('tick', stage)
 }
 
 function createBodies (celestialBodyData, showcaseBodyId) {
@@ -24,8 +28,9 @@ function createBodies (celestialBodyData, showcaseBodyId) {
 function placeBodies (stage, bodies) {
   bodies.forEach(function (elem) {
     elem.x = 500
-    elem.y = 500
+    elem.y = 0
     stage.addChild(elem)
+    animation.fallIn(elem)
   })
 }
 
