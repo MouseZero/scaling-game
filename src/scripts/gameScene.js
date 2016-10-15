@@ -31,7 +31,7 @@ function createBodies (celestialBodyData, showcaseBodyId) {
 function placeBodies (stage, bodies) {
   bodies.forEach(function (elem) {
     elem.x = 500
-    elem.y = 0
+    elem.y = -500
     stage.addChild(elem)
     animation.fallIn(elem)
   })
