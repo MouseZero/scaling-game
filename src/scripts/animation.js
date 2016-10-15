@@ -15,11 +15,12 @@ function sizeCompareAnimation (shapes) {
   const sizes = scaler.sizeForAllBodies(1000, solarSizes)
   const homePos = getHomePositions(sizes)
   // TODO still need to test if these are the right homes for the plants
+  console.log(sizes)
   console.log(homePos)
 }
 
 function getHomePositions (sizes) {
-  return sizes.reduce((prev, _, i, all) => {
+  return sizes.reverse().reduce((prev, _, i, all) => {
     const subSet = all.slice(0, i + 1)
     return [...prev, subSet]
   }, [])
