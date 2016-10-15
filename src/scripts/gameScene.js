@@ -39,7 +39,9 @@ function placeBodies (stage, bodies) {
 
 function deleteOldBodies () {
   lastBodies.forEach(function (elem) {
-    elem.clear()
+    if (elem.clear) {
+      elem.clear()
+    }
   })
 }
 
