@@ -9,7 +9,7 @@ module.exports = function createCelestialBody (canvasSize, selection) {
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
-  const size = scaler.solarSizeCompare(bodyInfo.size, maxSize, canvasSize)
+  const size = scaler.solarSizeCompare(canvasSize, maxSize, bodyInfo.size)
   body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, size)
   body.solarSize = bodyInfo.size
   body.homePos = scaler.bodyHomePosition(canvasSize, maxSize, bodyInfo.size)
