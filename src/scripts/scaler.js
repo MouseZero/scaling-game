@@ -13,7 +13,7 @@ function scaleAllBodies (bodies, canvasSize) {
 
 }
 
-function bodyHomePosition (currentBodySize, largestBodySize, canvasSize) {
+function bodyHomePosition (canvasSize, largestBodySize, currentBodySize) {
   const sizeOnCanvas = solarSizeCompare(currentBodySize, largestBodySize, canvasSize)
   const x = (canvasSize * (1 - MARGIN_INVERT)) + sizeOnCanvas
   const y = (canvasSize - sizeOnCanvas) - (canvasSize * MARGIN) / 2
