@@ -3,11 +3,11 @@ const createjs = require('createjs-collection')
 
 module.exports = function createCelestialBody (selection, canvasSize) {
   return selection.map(function (elem) {
-    return createACelestialBody(elem, maxBodySize(selection), canvasSize)
+    return createACelestialBody(canvasSize, maxBodySize(selection), elem)
   }).sort(compareDataSize)
 }
 
-function createACelestialBody (bodyInfo, maxSize, canvasSize) {
+function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
   const size = scaler.solarSizeCompare(bodyInfo.size, maxSize, canvasSize)
   body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, size)
