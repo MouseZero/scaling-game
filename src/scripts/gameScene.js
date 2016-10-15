@@ -25,7 +25,7 @@ function createBodies (celestialBodyData, showcaseBodyId) {
     ...celestialBodyData.rulers,
     celestialBodyData.showcase[showcaseBodyId]
   ]
-  return createCelestialBody(selection, CANVAS_SIZE)
+  return createCelestialBody(CANVAS_SIZE, selection)
 }
 
 function placeBodies (stage, bodies) {
