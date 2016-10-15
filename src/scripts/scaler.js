@@ -2,9 +2,15 @@ const MARGIN = 0.1
 const MARGIN_INVERT = 1 - MARGIN
 
 function solarSizeCompare (currentBodySize, largestBodySize, canvasSize) {
-  const diff = currentBodySize / largestBodySize
-  const largestSize = (canvasSize / 2) * MARGIN_INVERT
-  return diff * largestSize
+  return (currentBodySize * scale(largestBodySize, canvasSize))
+}
+
+function scale (largestSize, canvasSize) {
+  return (((canvasSize) / largestSize) * 0.5) * MARGIN_INVERT
+}
+
+function scaleAllBodies (bodies, canvasSize) {
+
 }
 
 function bodyHomePosition (currentBodySize, largestBodySize, canvasSize) {
