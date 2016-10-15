@@ -6,7 +6,9 @@ function sizeCompareAnimation (canvasSize, shapes) {
 
   startAnimation(canvasSize, shapes)
     .then(function () {
-      introAnimation(shapes[1], mult2)
+      return introAnimation(shapes[1], mult2)
+    }).then( function () {
+      console.log('done')
     })
 }
 
@@ -30,21 +32,24 @@ function startAnimation (canvasSize, shapes) {
 }
 
 function introAnimation (shape, currentScale) {
-    createjs.Tween.get(shape, { loop: false })
-    .to({
-      scaleX: currentScale,
-      scaleY: currentScale,
-      x: currentScale,
-      y: currentScale
-    }, 0)
-    .to({
-      scaleX: currentScale,
-      scaleY: currentScale,
-      x: 500,
-      y: 500
-    }, 6000, createjs.Ease.getPowOut(10))
-    .wait(2000)
-    .call(currentScale, [], this)
+    return new Promise(function (resolve, reject) {
+      createjs.Tween.get(shape, { loop: false })
+      .to({
+        scaleX: currentScale,
+        scaleY: currentScale,
+        x: currentScale,
+        y: currentScale
+      }, 0)
+      .to({
+        scaleX: currentScale,
+        scaleY: currentScale,
+        x: 500,
+        y: 500
+      }, 6000, createjs.Ease.getPowOut(5))
+      .wait(1000)
+      .call(resolve, [], this)
+  })
 }
+
 
 module.exports.sizeCompareAnimation = sizeCompareAnimation
