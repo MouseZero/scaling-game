@@ -12,6 +12,7 @@ function sizeCompareAnimation (shapes) {
 
   // New Animation
   const solarSizes = shapes.map(x => x.solarSize)
+  // TODO use a var for canvasSize
   const sizes = scaler.sizeForAllBodies(1000, solarSizes)
   const homePos = getHomePositions(sizes)
   // TODO still need to test if these are the right homes for the plants
@@ -21,8 +22,10 @@ function sizeCompareAnimation (shapes) {
 
 function getHomePositions (sizes) {
   return sizes.reverse().reduce((prev, _, i, all) => {
+    // TODO use a var for canvasSize
     const subSet = all.slice(0, i + 1)
-    return [...prev, subSet]
+    const homePos = scaler.homePositionForAllBodies(1000, subSet)
+    return [...prev, homePos]
   }, [])
 }
 

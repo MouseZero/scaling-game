@@ -23,7 +23,7 @@ function bodyHomePosition (canvasSize, largestBodySize, currentBodySize) {
 }
 
 function homePositionForAllBodies (canvasSize, bodySizes) {
-  const findPos = curry(bodyHomePosition(canvasSize, Math.max(bodySizes)))
+  const findPos = curry(bodyHomePosition)(canvasSize, Math.max(...bodySizes))
   return bodySizes.map(x => findPos(x))
 }
 
