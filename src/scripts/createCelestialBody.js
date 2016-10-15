@@ -23,5 +23,5 @@ function maxBodySize (bodies) {
 }
 
 function compareDataSize (a, b) {
-  return b.solarSize - a.solarSize
+  return a.solarSize - b.solarSize
 }

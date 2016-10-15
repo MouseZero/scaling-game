@@ -9,7 +9,8 @@ function newScene (celestialBodyData, showcaseBodyId) {
   const stage = getStage()
   deleteOldBodies()
   const bodies = createBodies(celestialBodyData, showcaseBodyId)
-  placeBodies(stage, bodies)
+  placeBodies(stage, bodies.slice().reverse())
+  animation.sizeCompareAnimation(CANVAS_SIZE, bodies)
 
   createjs.Ticker.setFPS(30)
   createjs.Ticker.addEventListener(TICKER_NAME, stage)
@@ -34,7 +35,6 @@ function placeBodies (stage, bodies) {
     elem.y = -500
     stage.addChild(elem)
   })
-  animation.sizeCompareAnimation(CANVAS_SIZE, bodies)
 }
 
 function deleteOldBodies () {
