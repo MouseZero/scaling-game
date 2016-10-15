@@ -5,4 +5,10 @@ function fallIn (shape) {
     .to({ x: shape.homePos.x, y: shape.homePos.y }, 2000, createjs.Ease.getPowInOut(4))
 }
 
-module.exports.fallIn = fallIn
+function sizeCompareAnimation (shapes) {
+  shapes.forEach(function (x) {
+    fallIn(x)
+  })
+}
+
+module.exports.sizeCompareAnimation = sizeCompareAnimation

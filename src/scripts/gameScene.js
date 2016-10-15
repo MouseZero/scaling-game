@@ -33,8 +33,8 @@ function placeBodies (stage, bodies) {
     elem.x = 500
     elem.y = -500
     stage.addChild(elem)
-    animation.fallIn(elem)
   })
+  animation.sizeCompareAnimation(bodies)
 }
 
 function deleteOldBodies () {
