@@ -1,4 +1,3 @@
-const scaler = require('./scaler')
 const createjs = require('createjs-collection')
 
 module.exports = function createCelestialBody (canvasSize, selection) {
@@ -9,10 +8,8 @@ module.exports = function createCelestialBody (canvasSize, selection) {
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
-  const size = scaler.creationSize(canvasSize, bodyInfo.size)
   body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
   body.solarSize = bodyInfo.size
-  body.homePos = scaler.bodyHomePosition(canvasSize, maxSize, bodyInfo.size)
   return body
 }
 
