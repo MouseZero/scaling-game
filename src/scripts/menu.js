@@ -46,9 +46,7 @@ function MenuDropdown (props) {
 function Item (props) {
   return (
     <li onClick={() => {
-        props.createScene(props.bodyId)
-    }}>
-      {props.data}
-    </li>
+      props.createScene(props.bodyId)
+    }}>{props.data}</li>
   )
 }
