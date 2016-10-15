@@ -1,7 +1,7 @@
 const scaler = require('./scaler')
 const createjs = require('createjs-collection')
 
-module.exports = function (selection, canvasSize) {
+module.exports = function createCelestialBody (selection, canvasSize) {
   return selection.map(function (elem) {
     return createACelestialBody(elem, maxBodySize(selection), canvasSize)
   }).sort(compareDataSize)
