@@ -6,23 +6,21 @@ function fallIn (shape) {
     .to({ x: shape.homePos.x, y: shape.homePos.y }, 2000, createjs.Ease.getPowInOut(4))
 }
 
-function sizeCompareAnimation (shapes) {
+function sizeCompareAnimation (canvasSize, shapes) {
   // Old animation
   shapes.forEach(e => fallIn(e))
 
   // New Animation
   const solarSizes = shapes.map(x => x.solarSize)
-  // TODO use a var for canvasSize
-  const sizes = scaler.sizeForAllBodies(1000, solarSizes)
-  const homePos = getHomePositions(sizes)
+  const sizes = scaler.sizeForAllBodies(canvasSize, solarSizes)
+  const homePos = getHomePositions(canvasSize, sizes)
   console.log(homePos)
 }
 
-function getHomePositions (sizes) {
+function getHomePositions (canvasSize, sizes) {
   return sizes.reverse().reduce((prev, _, i, all) => {
-    // TODO use a var for canvasSize
     const subSet = all.slice(0, i + 1)
-    const homePos = scaler.homePositionForAllBodies(1000, subSet)
+    const homePos = scaler.homePositionForAllBodies(canvasSize, subSet)
     return [...prev, homePos]
   }, [])
 }

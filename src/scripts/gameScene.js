@@ -34,7 +34,7 @@ function placeBodies (stage, bodies) {
     elem.y = -500
     stage.addChild(elem)
   })
-  animation.sizeCompareAnimation(bodies)
+  animation.sizeCompareAnimation(CANVAS_SIZE, bodies)
 }
 
 function deleteOldBodies () {
