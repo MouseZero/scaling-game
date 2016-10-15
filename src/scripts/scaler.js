@@ -1,3 +1,4 @@
+const curry = require('lodash.curry')
 const MARGIN = 0.1
 const MARGIN_INVERT = 1 - MARGIN
 
@@ -21,6 +22,12 @@ function bodyHomePosition (canvasSize, largestBodySize, currentBodySize) {
   return { x, y }
 }
 
+function homePositionForAllBodies (canvasSize, bodySizes) {
+  const findPos = curry(bodyHomePosition(canvasSize, Math.max(bodySizes)))
+  return bodySizes.map(x => findPos(x))
+}
+
 module.exports.solarSizeCompare = solarSizeCompare
 module.exports.bodyHomePosition = bodyHomePosition
 module.exports.sizeForAllBodies = sizeForAllBodies
+module.exports.homePositionForAllBodies = homePositionForAllBodies
