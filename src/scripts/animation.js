@@ -15,8 +15,6 @@ function sizeCompareAnimation (shapes) {
   // TODO use a var for canvasSize
   const sizes = scaler.sizeForAllBodies(1000, solarSizes)
   const homePos = getHomePositions(sizes)
-  // TODO still need to test if these are the right homes for the plants
-  console.log(sizes)
   console.log(homePos)
 }
 
