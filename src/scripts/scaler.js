@@ -27,7 +27,17 @@ function homePositionForAllBodies (canvasSize, bodySizes) {
   return bodySizes.map(x => findPos(x))
 }
 
+function creationSize (canvasSize, solarSize) {
+  return (solarSize / 100) * canvasSize
+}
+
+function solarMultiplier (canvasSize, largestSize) {
+  return canvasSize / largestSize
+}
+
 module.exports.solarSizeCompare = solarSizeCompare
 module.exports.bodyHomePosition = bodyHomePosition
 module.exports.sizeForAllBodies = sizeForAllBodies
 module.exports.homePositionForAllBodies = homePositionForAllBodies
+module.exports.creationSize = creationSize
+module.exports.solarMultiplier = solarMultiplier
