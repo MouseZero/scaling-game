@@ -35,7 +35,6 @@ function MenuDropdown (props) {
     <ul className='dropdown-menu'>
       {props.bodyData.map((x, i) =>
         <span key={i}>
-          { console.log('key ' + i) }
           <Item data={x.name} bodyId={i} createScene={props.createScene} />
         </span>
       )}

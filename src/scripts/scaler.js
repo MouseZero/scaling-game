@@ -2,15 +2,16 @@ const MARGIN = 0.1
 const MARGIN_INVERT = 1 - MARGIN
 
 function solarSizeCompare (canvasSize, largestBodySize, currentBodySize) {
-  return (currentBodySize * scale(largestBodySize, canvasSize))
+  return (currentBodySize * scale(canvasSize, largestBodySize))
 }
 
-function scale (largestSize, canvasSize) {
+function scale (canvasSize, largestSize) {
   return (((canvasSize) / largestSize) * 0.5) * MARGIN_INVERT
 }
 
-function scaleAllBodies (bodies, canvasSize) {
-
+function sizeForAllBodies (canvasSize, solarSizes) {
+  const scaleNum = scale(canvasSize, Math.max(...solarSizes))
+  return solarSizes.map(x => x * scaleNum)
 }
 
 function bodyHomePosition (canvasSize, largestBodySize, currentBodySize) {
@@ -22,3 +23,4 @@ function bodyHomePosition (canvasSize, largestBodySize, currentBodySize) {
 
 module.exports.solarSizeCompare = solarSizeCompare
 module.exports.bodyHomePosition = bodyHomePosition
+module.exports.sizeForAllBodies = sizeForAllBodies

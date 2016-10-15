@@ -1,4 +1,5 @@
 const createjs = require('createjs-collection')
+const scaler = require('./scaler')
 
 function fallIn (shape) {
   createjs.Tween.get(shape, { loop: false })
@@ -6,9 +7,11 @@ function fallIn (shape) {
 }
 
 function sizeCompareAnimation (shapes) {
-  shapes.forEach(function (x) {
-    fallIn(x)
-  })
+  shapes.forEach(e => fallIn(e))
+
+  const solarSizes = shapes.map(x => x.solarSize)
+  const sizes = scaler.sizeForAllBodies(1000, solarSizes)
+  sizes.forEach(x => { console.log(x) })
 }
 
 module.exports.sizeCompareAnimation = sizeCompareAnimation
