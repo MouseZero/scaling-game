@@ -19,7 +19,8 @@ function introAnimation (shape, currentScale) {
         scaleX: currentScale,
         scaleY: currentScale,
         x: currentScale,
-        y: currentScale
+        y: currentScale,
+        visible: true
       }, 0)
       .to({
         scaleX: currentScale,

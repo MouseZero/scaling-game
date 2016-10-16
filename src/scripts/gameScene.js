@@ -33,6 +33,7 @@ function placeBodies (stage, bodies) {
   bodies.forEach(function (elem) {
     elem.x = 500
     elem.y = -500
+    elem.visible = false
     stage.addChild(elem)
   })
 }
