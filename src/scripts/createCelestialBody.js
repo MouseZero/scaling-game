@@ -8,7 +8,14 @@ module.exports = function createCelestialBody (canvasSize, selection) {
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
-  body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
+  if (bodyInfo.image) {
+    const img = new window.Image(500, 500)
+    img.src = bodyInfo.image
+    // body.graphics.beginBitmapFill(img).drawCircle(0, 0, bodyInfo.size / 2)
+    body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
+  } else {
+    body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
+  }
   body.solarSize = bodyInfo.size
   return body
 }
