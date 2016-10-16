@@ -12,12 +12,6 @@ module.exports = {
       'type': 'earth',
       'size': 0.0092,
       'color': '#363'
-    },
-    {
-      'name': 'Test Thing',
-      'type': 'star',
-      'size': 0.5,
-      'color': '#44c'
     }
   ],
 

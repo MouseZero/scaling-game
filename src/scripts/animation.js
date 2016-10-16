@@ -1,8 +1,8 @@
 const createjs = require('createjs-collection')
 const scaler = require('./scaler')
-const SHRINK_TIME = 1000
-const WAIT_TIME = 500
 const ZOOM_TIME = 3000
+const WAIT_TIME = 500
+const SLIDE_TIME = 3000
 
 function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
@@ -23,7 +23,7 @@ function introAnimation (shape, currentScale) {
         x: 500,
         y: 500,
         alpha: 1
-      }, ZOOM_TIME, createjs.Ease.getPowOut(6))
+      }, SLIDE_TIME, createjs.Ease.getPowOut(6))
       .wait(WAIT_TIME)
       .call(resolve, [], this)
   })
@@ -35,7 +35,7 @@ function changeZoom (stage, canvasSize, scale) {
       .to({
         scaleX: scale,
         scaleY: scale
-      }, SHRINK_TIME, createjs.Ease.getPowOut(5))
+      }, ZOOM_TIME, createjs.Ease.getPowOut(5))
   })
 }
 
