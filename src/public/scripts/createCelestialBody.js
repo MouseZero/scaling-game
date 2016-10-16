@@ -2,7 +2,6 @@ const createjs = require('createjs-collection')
 
 module.exports = function createCelestialBody (canvasSize, selection) {
   const allBodies = drawAllBodies(canvasSize, selection)
-  loadAllImages(allBodies)
   return allBodies
 }
 
@@ -10,25 +9,6 @@ function drawAllBodies (canvasSize, selection) {
   return selection.map(function (bodyInfo) {
     return createACelestialBody(canvasSize, maxBodySize(selection), bodyInfo)
   }).sort(compareDataSize)
-}
-
-function loadAllImages (bodies) {
-  console.log('test')
-  const imageBodies = bodies.filter((x) => !!x.imageRef)
-  const queue = new createjs.LoadQueue(true)
-  imageBodies.forEach(x => queue.loadFile({id: x.solarSize, src: x.imageRef, loadTimeout: 2000}, false))
-  queue.on('complete', loadedImages)
-  queue.on('error', errorLoadingImages)
-  console.log(queue.getItems(true))
-  queue.load()
-}
-
-function loadedImages (event) {
-  console.log('Loaded All Images')
-}
-
-function errorLoadingImages () {
-  console.log('Error loading images')
 }
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
