@@ -1,22 +1,29 @@
 const createjs = require('createjs-collection')
 
 module.exports = function createCelestialBody (canvasSize, selection) {
-  return selection.map(function (elem) {
-    return createACelestialBody(canvasSize, maxBodySize(selection), elem)
+  const allBodies = drawAllBodies(canvasSize, selection)
+  loadAllImages(allBodies)
+  return allBodies
+}
+
+function drawAllBodies (canvasSize, selection) {
+  return selection.map(function (bodyInfo) {
+    return createACelestialBody(canvasSize, maxBodySize(selection), bodyInfo)
   }).sort(compareDataSize)
+}
+
+function loadAllImages (bodies) {
+  const imageBodies = bodies.filter((x) => !!x.imageRef)
+  console.log(imageBodies)
 }
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
-  if (bodyInfo.image) {
-    const img = new window.Image(500, 500)
-    img.src = bodyInfo.image
-    // body.graphics.beginBitmapFill(img).drawCircle(0, 0, bodyInfo.size / 2)
-    body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
-  } else {
-    body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
-  }
+  body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
   body.solarSize = bodyInfo.size
+  if (bodyInfo.image) {
+    body.imageRef = bodyInfo.image
+  }
   return body
 }
 
