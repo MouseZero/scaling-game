@@ -1,6 +1,9 @@
 const createjs = require('createjs-collection')
 const scaler = require('./scaler')
 const SHRINK_TIME = 2000
+const WAIT_TIME = 1000
+const ZOOM_TIME = 4000
+
 
 function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
@@ -14,21 +17,15 @@ function sizeCompareAnimation (stage, canvasSize, shapes) {
 
 function introAnimation (shape, currentScale) {
     return new Promise(function (resolve, reject) {
+      shape.x = -(currentScale * shape.solarSize * 2)
+      shape.y = -(currentScale * shape.solarSize * 0.05)
+      shape.visible = true
       const animation = createjs.Tween.get(shape, { loop: false })
       .to({
-        scaleX: currentScale,
-        scaleY: currentScale,
-        x: currentScale,
-        y: currentScale,
-        visible: true
-      }, 0)
-      .to({
-        scaleX: currentScale,
-        scaleY: currentScale,
         x: 500,
         y: 500
-      }, 3000, createjs.Ease.getPowOut(5))
-      .wait(1000)
+      }, ZOOM_TIME, createjs.Ease.getPowOut(3))
+      .wait(WAIT_TIME)
       .call(resolve, [], this)
   })
 }
@@ -39,7 +36,7 @@ function changeZoom (stage, canvasSize, scale) {
       .to({
         scaleX: scale,
         scaleY: scale
-      }, 2000, createjs.Ease.getPowOut(5))
+      }, SHRINK_TIME, createjs.Ease.getPowOut(5))
   })
 }
 

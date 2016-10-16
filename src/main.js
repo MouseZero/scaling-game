@@ -7,5 +7,5 @@ window.init = function () {
   createMenu(celestialBodyData, newScene)
 
   // -- Graphics Display --
-  newScene(celestialBodyData, 0)
+  newScene(celestialBodyData, 2)
 }
