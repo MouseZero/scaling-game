@@ -3,13 +3,16 @@ const scaler = require('./scaler')
 
 function sizeCompareAnimation (canvasSize, shapes) {
   const mult2 = scaler.solarMultiplier(canvasSize, shapes[1].solarSize)
+  const mult3 = scaler.solarMultiplier(canvasSize, shapes[2].solarSize)
 
   startAnimation(canvasSize, shapes)
     .then(function () {
-      return introAnimation(shapes[1], mult2)
+      return introAnimation(shapes[1], mult2, mult3)
     }).then( function () {
       console.log('done')
     })
+
+    Promise.resolve()
 }
 
 function startAnimation (canvasSize, shapes) {
@@ -31,9 +34,9 @@ function startAnimation (canvasSize, shapes) {
 
 }
 
-function introAnimation (shape, currentScale) {
+function introAnimation (shape, currentScale, nextScale) {
     return new Promise(function (resolve, reject) {
-      createjs.Tween.get(shape, { loop: false })
+      const animation = createjs.Tween.get(shape, { loop: false })
       .to({
         scaleX: currentScale,
         scaleY: currentScale,
@@ -45,9 +48,16 @@ function introAnimation (shape, currentScale) {
         scaleY: currentScale,
         x: 500,
         y: 500
-      }, 6000, createjs.Ease.getPowOut(5))
+      }, 3000, createjs.Ease.getPowOut(5))
       .wait(1000)
       .call(resolve, [], this)
+
+      if(nextScale){
+        animation.to({
+          scaleX: nextScale,
+          scaleY: nextScale
+        }, 2000, createjs.Ease.getPowOut(5))
+      }
   })
 }
 
