@@ -12,7 +12,7 @@ module.exports = {
       'type': 'earth',
       'size': 0.0092,
       'color': '#363',
-      'image': 'http://shneek.com/codepen/mind/game/earth.png'
+      'image': 'earth.png'
     }
   ],
 

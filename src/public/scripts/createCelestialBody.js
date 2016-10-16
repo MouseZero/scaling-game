@@ -13,8 +13,22 @@ function drawAllBodies (canvasSize, selection) {
 }
 
 function loadAllImages (bodies) {
+  console.log('test')
   const imageBodies = bodies.filter((x) => !!x.imageRef)
-  console.log(imageBodies)
+  const queue = new createjs.LoadQueue(true)
+  imageBodies.forEach(x => queue.loadFile({id: x.solarSize, src: x.imageRef, loadTimeout: 2000}, false))
+  queue.on('complete', loadedImages)
+  queue.on('error', errorLoadingImages)
+  console.log(queue.getItems(true))
+  queue.load()
+}
+
+function loadedImages (event) {
+  console.log('Loaded All Images')
+}
+
+function errorLoadingImages () {
+  console.log('Error loading images')
 }
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
