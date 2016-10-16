@@ -2,10 +2,11 @@ const createjs = require('createjs-collection')
 const scaler = require('./scaler')
 
 function sizeCompareAnimation (canvasSize, shapes) {
+  const mult1 = scaler.solarMultiplier(canvasSize, shapes[0].solarSize)
   const mult2 = scaler.solarMultiplier(canvasSize, shapes[1].solarSize)
   const mult3 = scaler.solarMultiplier(canvasSize, shapes[2].solarSize)
 
-  startAnimation(canvasSize, shapes)
+  introAnimation(shapes[0], mult1, mult2)
     .then(function () {
       return introAnimation(shapes[1], mult2, mult3)
     }).then( function () {
@@ -13,25 +14,6 @@ function sizeCompareAnimation (canvasSize, shapes) {
     })
 
     Promise.resolve()
-}
-
-function startAnimation (canvasSize, shapes) {
-  return new Promise(function (resolve, reject) {
-    const multipler = scaler.solarMultiplier(canvasSize, shapes[0].solarSize)
-    shapes[0].scaleX = multipler
-    shapes[0].scaleY = multipler
-    const mult2 = scaler.solarMultiplier(canvasSize, shapes[1].solarSize)
-
-    createjs.Tween.get(shapes[0], { loop: false })
-      .to({x: 500, y: 500}, 2000, createjs.Ease.getPowInOut(4))
-      .wait(1000)
-      .call(resolve, [], this)
-      .to({
-        scaleX: mult2,
-        scaleY: mult2
-      }, 3000, createjs.Ease.getPowOut(4))
-  })
-
 }
 
 function introAnimation (shape, currentScale, nextScale) {
