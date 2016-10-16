@@ -1,8 +1,8 @@
 const createjs = require('createjs-collection')
 const scaler = require('./scaler')
-const SHRINK_TIME = 3000
-const WAIT_TIME = 1000
-const ZOOM_TIME = 4000
+const SHRINK_TIME = 1000
+const WAIT_TIME = 500
+const ZOOM_TIME = 3000
 
 function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
