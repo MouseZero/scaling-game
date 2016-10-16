@@ -18,12 +18,12 @@ function introAnimation (shape, currentScale) {
   return new Promise(function (resolve, reject) {
     shape.x = -(currentScale * shape.solarSize * 2)
     shape.y = -(currentScale * shape.solarSize * 0.05)
-    shape.visible = true
     createjs.Tween.get(shape)
       .to({
         x: 500,
-        y: 500
-      }, ZOOM_TIME, createjs.Ease.getPowOut(3))
+        y: 500,
+        alpha: 1
+      }, ZOOM_TIME, createjs.Ease.getPowOut(6))
       .wait(WAIT_TIME)
       .call(resolve, [], this)
   })

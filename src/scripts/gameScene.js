@@ -31,7 +31,7 @@ function createBodies (celestialBodyData, showcaseBodyId) {
 
 function placeBodies (stage, bodies) {
   bodies.forEach(function (elem) {
-    elem.visible = false
+    elem.alpha = 0
     stage.addChild(elem)
   })
 }
