@@ -1,27 +1,18 @@
 const createjs = require('createjs-collection')
 const scaler = require('./scaler')
+const SHRINK_TIME = 2000
 
-function sizeCompareAnimation (canvasSize, shapes) {
-
-  const mult1 = scaler.solarMultiplier(canvasSize, shapes[0].solarSize)
-  const mult2 = scaler.solarMultiplier(canvasSize, shapes[1].solarSize)
-  const mult3 = scaler.solarMultiplier(canvasSize, shapes[2].solarSize)
-
-  const small = shapes.slice(0, 1)
-
+function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
     return promise.then(function () {
       const scale = scaler.solarMultiplier(canvasSize, shape.solarSize)
-      let scale2 = null
-      if(all[i + 1]){
-        scale2 = scaler.solarMultiplier(canvasSize, all[i + 1].solarSize)
-      }
-      return introAnimation(shape, scale, scale2)
+      changeZoom(stage, canvasSize, scale)
+      return introAnimation(shape, scale)
     })
   }, Promise.resolve())
 }
 
-function introAnimation (shape, currentScale, nextScale) {
+function introAnimation (shape, currentScale) {
     return new Promise(function (resolve, reject) {
       const animation = createjs.Tween.get(shape, { loop: false })
       .to({
@@ -38,13 +29,16 @@ function introAnimation (shape, currentScale, nextScale) {
       }, 3000, createjs.Ease.getPowOut(5))
       .wait(1000)
       .call(resolve, [], this)
+  })
+}
 
-      if(nextScale){
-        animation.to({
-          scaleX: nextScale,
-          scaleY: nextScale
-        }, 2000, createjs.Ease.getPowOut(5))
-      }
+function changeZoom (stage, canvasSize, scale) {
+  stage.children.forEach(function (x) {
+    createjs.Tween.get(x, {loop: false})
+      .to({
+        scaleX: scale,
+        scaleY: scale
+      }, 2000, createjs.Ease.getPowOut(5))
   })
 }
 
