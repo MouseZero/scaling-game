@@ -5,8 +5,7 @@ const animation = require('./animation')
 const TICKER_NAME = 'tick'
 let lastBodies = []
 
-function newScene (celestialBodyData, showcaseBodyId) {
-  const stage = getStage()
+function newScene (stage, celestialBodyData, showcaseBodyId) {
   deleteOldBodies()
   const bodies = createBodies(celestialBodyData, showcaseBodyId)
   placeBodies(stage, bodies.slice().reverse())
@@ -15,10 +14,6 @@ function newScene (celestialBodyData, showcaseBodyId) {
   createjs.Ticker.setFPS(30)
   createjs.Ticker.addEventListener(TICKER_NAME, stage)
   lastBodies = bodies
-}
-
-function getStage () {
-  return new createjs.Stage('game')
 }
 
 function createBodies (celestialBodyData, showcaseBodyId) {
