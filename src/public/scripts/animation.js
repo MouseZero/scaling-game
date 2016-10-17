@@ -1,15 +1,23 @@
 const createjs = require('createjs-collection')
 const ZOOM_TIME = 4000
 const WAIT_TIME = 500
+var lastZoomScale
 
 function introAnimation (stage, canvasSize, shapes) {
+  lastZoomScale = shapes[0].solarSize
   changeZoom(stage, canvasSize, shapes[6].solarSize)
 }
 
 // TODO look into deleting options
 function changeZoom (stage, canvasSize, scale, options) {
   options = options || {}
+  const speed = numberOfBodiesBetween(lastZoomScale, scale, stage) * 1200
+  options.zoomTime = options.zoomTime || speed
+  options.stage = stage
+  options.canvasSize = canvasSize
+  options.scale = scale
   animateEachBody(stage, canvasSize, scale, options)
+  lastZoomScale = scale
 }
 
 function animateEachBody (stage, canvasSize, scale, options) {
@@ -22,11 +30,20 @@ function animateEachBody (stage, canvasSize, scale, options) {
           scaleY: futureScale,
           x: x.cordsFromCenter(500, futureScale),
           y: x.cordsFromCenter(500, futureScale)
-        }, options.zoomTime || ZOOM_TIME,
-        options.ease || createjs.Ease.getPowOut(5))
-        // .wait(options.waitTime || WAIT_TIME)
+        }, options.zoomTime,
+        options.ease || createjs.Ease.getPowOut(10))
     }
   })
+}
+
+function numberOfBodiesBetween(scale1, scale2, stage){
+  const largerScale = Math.max(scale1, scale2)
+  const smallerScale = Math.min(scale1, scale2)
+  return stage.children.reduce(function (p, x) {
+    if(x.solarSize <= largerScale && x.solarSize >= smallerScale)
+      return p + 1
+    return p
+  }, 0)
 }
 
 module.exports.introAnimation = introAnimation
