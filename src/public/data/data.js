@@ -12,11 +12,6 @@ module.exports = {
       'image': 'images/earth.png'
     },
     {
-      'name': 'USA',
-      'size': 2800,
-      'image': 'images/us.png'
-    },
-    {
       'name': 'The Moon',
       'size': 2158,
       'image': 'images/moon.png'
