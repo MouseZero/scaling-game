@@ -6,6 +6,7 @@ module.exports = {
       'type': 'thesun',
       'size': 1,
       'color': '#f4df42'
+      // 'image': 'star.png'
     },
     {
       'name': 'Earth',
