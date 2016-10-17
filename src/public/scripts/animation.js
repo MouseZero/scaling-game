@@ -1,5 +1,4 @@
 const createjs = require('createjs-collection')
-const scaler = require('./scaler')
 const ZOOM_TIME = 3000
 const WAIT_TIME = 500
 const SLIDE_TIME = 3000
@@ -15,9 +14,9 @@ function sizeCompareAnimation (stage, canvasSize, shapes) {
 
 function introAnimation (shape) {
   return new Promise(function (resolve, reject) {
-    const currentScale = shape.solarSize
-    shape.x = -(shape.calcScaleFromLargestBody(currentScale) * shape.solarSize * 2)
-    shape.y = -(shape.calcScaleFromLargestBody(currentScale) * shape.solarSize * 0.05)
+    const coreDistanceToStart = shape.calcScaleFromLargestBody(shape.solarSize) * shape.solarSize
+    shape.x = -(coreDistanceToStart * 2)
+    shape.y = -(coreDistanceToStart * 0.05)
     createjs.Tween.get(shape)
       .to({
         x: 500,
