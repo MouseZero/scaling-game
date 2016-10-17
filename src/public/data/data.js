@@ -2,24 +2,24 @@ module.exports = {
 
   'bodies': [
     {
-      'name': 'M',
-      'size': 345830,
-      'color': '#fc2859'
+      'name': 'Star O',
+      'size': 12968640,
+      'color': '#4233f4'
     },
     {
-      'name': 'F',
-      'size': 1123949,
-      'color': '#42a7f4'
-    },
-    {
-      'name': 'B',
+      'name': 'Star B',
       'size': 6052032,
       'color': '#42ccf4'
     },
     {
-      'name': 'O',
-      'size': 12968640,
-      'color': '#4233f4'
+      'name': 'Star F',
+      'size': 1123949,
+      'color': '#42a7f4'
+    },
+    {
+      'name': 'Star M',
+      'size': 345830,
+      'color': '#fc2859'
     },
     {
       'name': 'Sun',
@@ -35,11 +35,6 @@ module.exports = {
       'name': 'The Moon',
       'size': 2158,
       'image': 'images/moon.png'
-    },
-    {
-      'name': 'California',
-      'size': 840,
-      'image': 'images/cal.png'
     },
     {
       'name': 'The Empire State Building',
