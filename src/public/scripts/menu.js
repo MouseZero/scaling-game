@@ -43,7 +43,7 @@ function MenuDropdown (props) {
 function Item (props) {
   return (
     <li onClick={() => {
-      props.zoom(props.data.size)
+      props.zoom(props.data.size, {})
     }}>{props.data.name}</li>
   )
 }

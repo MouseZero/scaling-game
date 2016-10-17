@@ -22,7 +22,6 @@ options { <--- optional
 }
 */
 function changeZoom (stage, canvasSize, scale, options) {
-  console.log('called')
   options = options || {}
   return new Promise(function (resolve, reject) {
     stage.children.forEach(function (x) {
