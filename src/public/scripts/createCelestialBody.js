@@ -34,8 +34,8 @@ function extendBodiesCapabilities (canvasSize, bodyInfo, body) {
   if (bodyInfo.image) {
     body.imageRef = bodyInfo.image
   }
-  body.cordsFromCenter = function (xOrY, overrideScale) {
-    return (body.imageRef) ? xOrY - (halfCanvas * (overrideScale || body.scaleX)) : xOrY
+  body.cordsFromCenter = function (overrideScale) {
+    return (body.imageRef) ? halfCanvas - (halfCanvas * (overrideScale || body.scaleX)) : halfCanvas
   }
   body.solarSize = bodyInfo.size
   body.calcScaleFromLargestBody = function (bodyToScaleTo) {

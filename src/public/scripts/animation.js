@@ -29,8 +29,8 @@ function animateEachBody (stage, canvasSize, scale, options) {
         .to({
           scaleX: futureScale,
           scaleY: futureScale,
-          x: x.cordsFromCenter(500, futureScale),
-          y: x.cordsFromCenter(500, futureScale)
+          x: x.cordsFromCenter(futureScale),
+          y: x.cordsFromCenter(futureScale)
         }, options.zoomTime,
         options.ease)
     }

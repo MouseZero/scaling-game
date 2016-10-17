@@ -18,8 +18,8 @@ function placeBodies (stage, bodies) {
       const futureScale = body.calcScaleFromLargestBody(bodies[0].solarSize)
       body.scaleX = futureScale
       body.scaleY = futureScale
-      body.x = body.cordsFromCenter(500, futureScale)
-      body.y = body.cordsFromCenter(500, futureScale)
+      body.x = body.cordsFromCenter(futureScale)
+      body.y = body.cordsFromCenter(futureScale)
       stage.addChild(body)
     })
 }
