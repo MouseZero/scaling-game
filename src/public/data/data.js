@@ -2,19 +2,24 @@ module.exports = {
 
   'bodies': [
     {
+      'name': 'Test Star No Image',
+      'size': 15968640,
+      'color': '#4233f4'
+    },
+    {
       'name': 'Star O',
       'size': 12968640,
-      'color': '#4233f4'
+      'image': 'images/star3.png'
     },
     {
       'name': 'Star B',
       'size': 6052032,
-      'color': '#42ccf4'
+      'image': 'images/star2.png'
     },
     {
       'name': 'Star F',
       'size': 1123949,
-      'color': '#42a7f4'
+      'image': 'images/star1.png'
     },
     {
       'name': 'Sun',

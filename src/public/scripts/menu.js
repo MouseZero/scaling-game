@@ -33,9 +33,9 @@ function MenuDropdown (props) {
   return (
     <ul className='dropdown-menu'>
       {props.bodyData.map((x, i) =>
-        <span key={i}>
+        <div key={i}>
           <Item data={x} bodyId={i} zoom={props.zoom} />
-        </span>
+        </div>
       )}
     </ul>
   )

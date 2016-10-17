@@ -7,10 +7,7 @@
   margin-right: auto;
 }
 
-.dropdown-menu {
+.dropdown-menu, .dropdown-toggle {
   font-size: 3em;
-}
-
-.dropdown-toggle {
-  font-size: 3em;
+  cursor: pointer;
 }
