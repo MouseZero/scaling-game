@@ -17,11 +17,6 @@ module.exports = {
       'color': '#42a7f4'
     },
     {
-      'name': 'Star M',
-      'size': 345830,
-      'color': '#fc2859'
-    },
-    {
       'name': 'Sun',
       'size': 864576,
       'image': 'images/star.png'

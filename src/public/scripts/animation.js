@@ -11,11 +11,13 @@ function introAnimation (stage, canvasSize, shapes) {
 // TODO look into deleting options
 function changeZoom (stage, canvasSize, scale, options) {
   options = options || {}
-  const speed = numberOfBodiesBetween(lastZoomScale, scale, stage) * 1200
+  const speed = numberOfBodiesBetween(lastZoomScale, scale, stage) * 1500
   options.zoomTime = options.zoomTime || speed
-  options.stage = stage
-  options.canvasSize = canvasSize
-  options.scale = scale
+  if (lastZoomScale > scale) {
+    options.ease = createjs.Ease.getPowIn(8)
+  } else {
+    options.ease = createjs.Ease.getPowOut(8)
+  }
   animateEachBody(stage, canvasSize, scale, options)
   lastZoomScale = scale
 }
@@ -31,7 +33,7 @@ function animateEachBody (stage, canvasSize, scale, options) {
           x: x.cordsFromCenter(500, futureScale),
           y: x.cordsFromCenter(500, futureScale)
         }, options.zoomTime,
-        options.ease || createjs.Ease.getPowOut(10))
+        options.ease)
     }
   })
 }
