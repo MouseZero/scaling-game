@@ -1,4 +1,5 @@
 const createjs = require('createjs-collection')
+const scaler = require('./scaler')
 
 module.exports = function createCelestialBody (canvasSize, selection) {
   const allBodies = drawAllBodies(canvasSize, selection)
@@ -14,9 +15,10 @@ function drawAllBodies (canvasSize, selection) {
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
   body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
-  // On a larger project I would make a new class because I'm adding new members here
+  // Should make a new class to make it clear I'm adding abilities
   body.solarSize = bodyInfo.size
-  body.calcSizeFromScale = function (scale) {
+  body.calcSizeFromScale = function (bodyToScaleTo) {
+    const scale = scaler.solarMultiplier(canvasSize, bodyToScaleTo)
     return scale
   }
   if (bodyInfo.image) {

@@ -8,7 +8,7 @@ function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
     return promise.then(function () {
       const scale = scaler.solarMultiplier(canvasSize, shape.solarSize)
-      changeZoom(stage, canvasSize, scale)
+      changeZoom(stage, canvasSize, shape.solarSize)
       return introAnimation(shape, scale)
     })
   }, Promise.resolve())
@@ -29,13 +29,13 @@ function introAnimation (shape, currentScale) {
   })
 }
 
-function changeZoom (stage, canvasSize, scale) {
+function changeZoom (stage, canvasSize, bodyToScaleTo) {
   stage.children.forEach(function (x) {
     if (x.calcSizeFromScale) {
       createjs.Tween.get(x)
         .to({
-          scaleX: x.calcSizeFromScale(scale),
-          scaleY: x.calcSizeFromScale(scale)
+          scaleX: x.calcSizeFromScale(bodyToScaleTo),
+          scaleY: x.calcSizeFromScale(bodyToScaleTo)
         }, ZOOM_TIME,
         createjs.Ease.getPowOut(5)
       )
