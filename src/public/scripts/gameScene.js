@@ -14,7 +14,14 @@ function newScene (stage, canvasSize, celestialBodyData) {
 
 function placeBodies (stage, bodies) {
   bodies.slice().reverse()
-    .forEach(x => stage.addChild(x))
+    .forEach(body => {
+      const futureScale = body.calcScaleFromLargestBody(bodies[0].solarSize)
+      body.scaleX = futureScale
+      body.scaleY = futureScale
+      body.x = body.cordsFromCenter(500, futureScale)
+      body.y = body.cordsFromCenter(500, futureScale)
+      stage.addChild(body)
+    })
 }
 
 module.exports.newScene = newScene
