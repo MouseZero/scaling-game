@@ -1,6 +1,26 @@
 module.exports = {
 
-  'rulers': [
+  'bodies': [
+    {
+      'name': 'M',
+      'size': 345830,
+      'color': '#fc2859'
+    },
+    {
+      'name': 'F',
+      'size': 1123949,
+      'color': '#42a7f4'
+    },
+    {
+      'name': 'B',
+      'size': 6052032,
+      'color': '#42ccf4'
+    },
+    {
+      'name': 'O',
+      'size': 12968640,
+      'color': '#4233f4'
+    },
     {
       'name': 'Sun',
       'size': 864576,
@@ -45,29 +65,6 @@ module.exports = {
       'name': 'Ant',
       'size': 0.000006,
       'image': 'images/ant.png'
-    }
-  ],
-
-  'showcase': [
-    {
-      'name': 'M',
-      'size': 345830,
-      'color': '#fc2859'
-    },
-    {
-      'name': 'F',
-      'size': 1123949,
-      'color': '#42a7f4'
-    },
-    {
-      'name': 'B',
-      'size': 6052032,
-      'color': '#42a7f4'
-    },
-    {
-      'name': 'O',
-      'size': 12968640,
-      'color': '#42a7f4'
     }
   ]
 }

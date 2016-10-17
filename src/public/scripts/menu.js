@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom')
 
 module.exports = function (celestialBodyData, zoom) {
   ReactDOM.render(
-    <Menu bodyData={celestialBodyData.rulers} zoom={zoom} />,
+    <Menu bodyData={celestialBodyData.bodies} zoom={zoom} />,
     document.getElementById('react-navbar')
   )
 }
@@ -41,7 +41,6 @@ function MenuDropdown (props) {
 }
 
 function Item (props) {
-  console.log(`data: ${JSON.stringify(props.data, null, 2)}`)
   return (
     <li onClick={() => {
       props.zoom(props.data.size)

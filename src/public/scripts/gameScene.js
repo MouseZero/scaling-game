@@ -15,11 +15,7 @@ function newScene (stage, canvasSize, celestialBodyData, showcaseBodyId) {
 }
 
 function createBodies (celestialBodyData, showcaseBodyId) {
-  const selection = [
-    ...celestialBodyData.rulers,
-    celestialBodyData.showcase[showcaseBodyId]
-  ]
-  return createCelestialBody(CANVAS_SIZE, selection)
+  return createCelestialBody(CANVAS_SIZE, celestialBodyData.bodies)
 }
 
 function placeBodies (stage, bodies) {
