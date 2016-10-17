@@ -17,7 +17,7 @@ function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
   // Should make a new class to make it clear I'm adding abilities
   body.solarSize = bodyInfo.size
-  body.calcSizeFromScale = function (bodyToScaleTo) {
+  body.calcScaleFromLargestBody = function (bodyToScaleTo) {
     const scale = scaler.solarMultiplier(canvasSize, bodyToScaleTo)
     return scale
   }

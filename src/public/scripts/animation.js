@@ -7,17 +7,16 @@ const SLIDE_TIME = 3000
 function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
     return promise.then(function () {
-      const scale = scaler.solarMultiplier(canvasSize, shape.solarSize)
       changeZoom(stage, canvasSize, shape.solarSize)
-      return introAnimation(shape, scale)
+      return introAnimation(shape, shape.solarSize)
     })
   }, Promise.resolve())
 }
 
 function introAnimation (shape, currentScale) {
   return new Promise(function (resolve, reject) {
-    shape.x = -(currentScale * shape.solarSize * 2)
-    shape.y = -(currentScale * shape.solarSize * 0.05)
+    shape.x = -(shape.calcScaleFromLargestBody(currentScale) * shape.solarSize * 2)
+    shape.y = -(shape.calcScaleFromLargestBody(currentScale) * shape.solarSize * 0.05)
     createjs.Tween.get(shape)
       .to({
         x: 500,
@@ -31,11 +30,11 @@ function introAnimation (shape, currentScale) {
 
 function changeZoom (stage, canvasSize, bodyToScaleTo) {
   stage.children.forEach(function (x) {
-    if (x.calcSizeFromScale) {
+    if (x.calcScaleFromLargestBody) {
       createjs.Tween.get(x)
         .to({
-          scaleX: x.calcSizeFromScale(bodyToScaleTo),
-          scaleY: x.calcSizeFromScale(bodyToScaleTo)
+          scaleX: x.calcScaleFromLargestBody(bodyToScaleTo),
+          scaleY: x.calcScaleFromLargestBody(bodyToScaleTo)
         }, ZOOM_TIME,
         createjs.Ease.getPowOut(5)
       )
