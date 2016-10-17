@@ -8,13 +8,14 @@ function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
     return promise.then(function () {
       changeZoom(stage, canvasSize, shape.solarSize)
-      return introAnimation(shape, shape.solarSize)
+      return introAnimation(shape)
     })
   }, Promise.resolve())
 }
 
-function introAnimation (shape, currentScale) {
+function introAnimation (shape) {
   return new Promise(function (resolve, reject) {
+    const currentScale = shape.solarSize
     shape.x = -(shape.calcScaleFromLargestBody(currentScale) * shape.solarSize * 2)
     shape.y = -(shape.calcScaleFromLargestBody(currentScale) * shape.solarSize * 0.05)
     createjs.Tween.get(shape)
