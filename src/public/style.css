@@ -6,3 +6,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.dropdown-menu {
+  font-size: 3em;
+}
+
+.dropdown-toggle {
+  font-size: 3em;
+}
