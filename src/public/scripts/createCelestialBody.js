@@ -14,12 +14,12 @@ function drawAllBodies (canvasSize, selection) {
 
 function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   const body = new createjs.Shape()
-  body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, bodyInfo.size / 2)
+  console.log(`Canvas Size if ${canvasSize}`)
+  body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, canvasSize / 2)
   // Should make a new class to make it clear I'm adding abilities
   body.solarSize = bodyInfo.size
   body.calcScaleFromLargestBody = function (bodyToScaleTo) {
-    const scale = scaler.solarMultiplier(canvasSize, bodyToScaleTo)
-    return scale
+    return body.solarSize / bodyToScaleTo
   }
   if (bodyInfo.image) {
     body.imageRef = bodyInfo.image
