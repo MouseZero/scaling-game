@@ -14,13 +14,8 @@ function sizeCompareAnimation (stage, canvasSize, shapes) {
 
 function introAnimation (shape) {
   return new Promise(function (resolve, reject) {
-    const coreDistanceToStart = shape.calcScaleFromLargestBody(shape.solarSize) * shape.solarSize
-    shape.x = shape.calcScaleFromLargestBody(-(coreDistanceToStart * 2))
-    shape.y = shape.calcScaleFromLargestBody(-(coreDistanceToStart * 0.05))
     createjs.Tween.get(shape)
       .to({
-        x: shape.cordsFromCenter(500),
-        y: shape.cordsFromCenter(500),
         alpha: 1
       }, SLIDE_TIME, createjs.Ease.getPowOut(6))
       .wait(WAIT_TIME)
@@ -28,15 +23,16 @@ function introAnimation (shape) {
   })
 }
 
-function changeZoom (stage, canvasSize, bodyToScaleTo) {
+function changeZoom (stage, canvasSize, scale) {
   stage.children.forEach(function (x) {
+    const futureScale = x.calcScaleFromLargestBody(scale)
     if (x.calcScaleFromLargestBody) {
       createjs.Tween.get(x)
         .to({
-          scaleX: x.calcScaleFromLargestBody(bodyToScaleTo),
-          scaleY: x.calcScaleFromLargestBody(bodyToScaleTo),
-          x: x.cordsFromCenter(500),
-          y: x.cordsFromCenter(500)
+          scaleX: futureScale,
+          scaleY: futureScale,
+          x: x.cordsFromCenter(500, futureScale),
+          y: x.cordsFromCenter(500, futureScale)
         }, ZOOM_TIME,
         createjs.Ease.getPowOut(5)
       )

@@ -22,7 +22,7 @@ function createACelestialBody (canvasSize, maxSize, bodyInfo) {
   } else {
     body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, canvasSize / 2)
   }
-  // Should make a new class to make it clear I'm adding abilities
+  // TODO make a new class to make it clear I'm adding abilities
   extendBodiesCapabilities(canvasSize, bodyInfo, body)
   return body
 }
@@ -32,9 +32,8 @@ function extendBodiesCapabilities (canvasSize, bodyInfo, body) {
   if (bodyInfo.image) {
     body.imageRef = bodyInfo.image
   }
-  body.cordsFromCenter = function (xOrY) {
-    console.log(`xOrY: ${xOrY} isBasedOnImage: ${body.scaleX}`)
-    return (body.imageRef) ? xOrY - halfCanvas : xOrY
+  body.cordsFromCenter = function (xOrY, overrideScale) {
+    return (body.imageRef) ? xOrY - (halfCanvas * (overrideScale || body.scaleX)) : xOrY
   }
   body.solarSize = bodyInfo.size
   body.calcScaleFromLargestBody = function (bodyToScaleTo) {
