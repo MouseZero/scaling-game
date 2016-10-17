@@ -1,19 +1,17 @@
 const createCelestialBody = require('./createCelestialBody')
 const createjs = require('createjs-collection')
-const CANVAS_SIZE = 1000
 const animation = require('./animation')
 const TICKER_NAME = 'tick'
-let lastBodies = []
+var CANVAS_SIZE = 1000
 
-function newScene (stage, celestialBodyData, showcaseBodyId) {
-  deleteOldBodies()
+function newScene (stage, canvasSize, celestialBodyData, showcaseBodyId) {
+  CANVAS_SIZE = canvasSize
   const bodies = createBodies(celestialBodyData, showcaseBodyId)
   placeBodies(stage, bodies.slice().reverse())
   animation.sizeCompareAnimation(stage, CANVAS_SIZE, bodies)
 
   createjs.Ticker.setFPS(30)
   createjs.Ticker.addEventListener(TICKER_NAME, stage)
-  lastBodies = bodies
 }
 
 function createBodies (celestialBodyData, showcaseBodyId) {
@@ -25,18 +23,7 @@ function createBodies (celestialBodyData, showcaseBodyId) {
 }
 
 function placeBodies (stage, bodies) {
-  bodies.forEach(function (elem) {
-    // elem.alpha = 0
-    stage.addChild(elem)
-  })
-}
-
-function deleteOldBodies () {
-  lastBodies.forEach(function (elem) {
-    if (elem.clear) {
-      elem.clear()
-    }
-  })
+  bodies.forEach(x => stage.addChild(x))
 }
 
 module.exports.newScene = newScene

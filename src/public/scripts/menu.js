@@ -2,10 +2,9 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const curry = require('lodash.curry')
 
-module.exports = function (celestialBodyData, newScene) {
-  const createScene = curry(newScene)(celestialBodyData)
+module.exports = function (celestialBodyData, zoom) {
   ReactDOM.render(
-    <Menu bodyData={celestialBodyData.showcase} createScene={createScene} />,
+    <Menu bodyData={celestialBodyData.showcase} zoom={zoom} />,
     document.getElementById('react-navbar')
   )
 }
@@ -14,7 +13,7 @@ function Menu (props) {
   return (
     <div className='dropdown'>
       <MenuButton />
-      <MenuDropdown bodyData={props.bodyData} createScene={props.createScene} />
+      <MenuDropdown bodyData={props.bodyData} zoom={props.zoom} />
     </div>
   )
 }
@@ -35,7 +34,7 @@ function MenuDropdown (props) {
     <ul className='dropdown-menu'>
       {props.bodyData.map((x, i) =>
         <span key={i}>
-          <Item data={x.name} bodyId={i} createScene={props.createScene} />
+          <Item data={x.name} bodyId={i} zoom={props.zoom} />
         </span>
       )}
     </ul>
@@ -45,7 +44,7 @@ function MenuDropdown (props) {
 function Item (props) {
   return (
     <li onClick={() => {
-      props.createScene(props.bodyId)
+      console.log('you clicked')
     }}>{props.data}</li>
   )
 }

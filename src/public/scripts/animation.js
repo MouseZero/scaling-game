@@ -41,3 +41,4 @@ function changeZoom (stage, canvasSize, scale) {
 }
 
 module.exports.sizeCompareAnimation = sizeCompareAnimation
+module.exports.changeZoom = changeZoom
