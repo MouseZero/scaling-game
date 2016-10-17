@@ -15,5 +15,5 @@ window.init = function () {
   createMenu(celestialBodyData, zoom)
 
   // -- Graphics Display --
-  newScene(stage, canvasSize, celestialBodyData, 2)
+  newScene(stage, canvasSize, celestialBodyData)
 }
