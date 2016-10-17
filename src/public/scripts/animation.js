@@ -1,7 +1,7 @@
 const createjs = require('createjs-collection')
 const ZOOM_TIME = 3000
 const WAIT_TIME = 500
-const SLIDE_TIME = 3000
+const FADE_IN_TIME = 3000
 
 function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
@@ -17,7 +17,7 @@ function introAnimation (shape) {
     createjs.Tween.get(shape)
       .to({
         alpha: 1
-      }, SLIDE_TIME, createjs.Ease.getPowOut(6))
+      }, FADE_IN_TIME, createjs.Ease.getPowOut(6))
       .wait(WAIT_TIME)
       .call(resolve, [], this)
   })
