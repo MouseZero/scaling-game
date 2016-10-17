@@ -20,10 +20,11 @@ function Menu (props) {
 function MenuButton () {
   return (
     <button
-      className='dropdown-toggle btn btn-primary'
+      className='dropdown-toggle btn btn-primary bigButton'
       type='button'
       data-toggle='dropdown'>
-      Button
+      Zoom To&nbsp;&nbsp;
+      <span className="buttonDisplay glyphicon glyphicon-search" aria-hidden="true"></span>
     </button>
   )
 }

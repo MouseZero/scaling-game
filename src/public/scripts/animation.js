@@ -4,13 +4,15 @@ const WAIT_TIME = 500
 
 function sizeCompareAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
-    return promise.then(function () {
-      return changeZoom(stage, canvasSize, shape.solarSize, {
-        zoomTime: 400,
-        waitTime: 1,
-        ease: createjs.Ease.linear
+    if (i < 7) {
+      return promise.then(function () {
+        return changeZoom(stage, canvasSize, shape.solarSize, {
+          zoomTime: 400,
+          waitTime: 1,
+          ease: createjs.Ease.linear
+        })
       })
-    })
+    }
   }, Promise.resolve())
 }
 
