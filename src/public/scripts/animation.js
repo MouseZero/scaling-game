@@ -31,11 +31,15 @@ function introAnimation (shape, currentScale) {
 
 function changeZoom (stage, canvasSize, scale) {
   stage.children.forEach(function (x) {
-    createjs.Tween.get(x)
-      .to({
-        scaleX: scale,
-        scaleY: scale
-      }, ZOOM_TIME, createjs.Ease.getPowOut(5))
+    if (x.calcSizeFromScale) {
+      createjs.Tween.get(x)
+        .to({
+          scaleX: x.calcSizeFromScale(scale),
+          scaleY: x.calcSizeFromScale(scale)
+        }, ZOOM_TIME,
+        createjs.Ease.getPowOut(5)
+      )
+    }
   })
 }
 
