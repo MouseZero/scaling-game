@@ -10,7 +10,15 @@ function sizeCompareAnimation (stage, canvasSize, shapes) {
   }, Promise.resolve())
 }
 
-function changeZoom (stage, canvasSize, scale) {
+/*
+options { <--- optional
+  zoomTime: number,
+  waitTIme: number,
+  ease: createjs.Ease (Object from TWEENJS)
+}
+*/
+function changeZoom (stage, canvasSize, scale, options) {
+  options = options || {}
   return new Promise(function (resolve, reject) {
     stage.children.forEach(function (x) {
       const futureScale = x.calcScaleFromLargestBody(scale)
@@ -21,9 +29,9 @@ function changeZoom (stage, canvasSize, scale) {
             scaleY: futureScale,
             x: x.cordsFromCenter(500, futureScale),
             y: x.cordsFromCenter(500, futureScale)
-          }, ZOOM_TIME,
-          createjs.Ease.getPowOut(5))
-          .wait(WAIT_TIME)
+          }, options.zoomTime || ZOOM_TIME,
+          options.ease || createjs.Ease.getPowOut(5))
+          .wait(options.waitTime || WAIT_TIME)
           .call(resolve, [], this)
       }
     })
