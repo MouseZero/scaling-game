@@ -1,20 +1,18 @@
 const createjs = require('createjs-collection')
-const ZOOM_TIME = 2000
+const ZOOM_TIME = 4000
 const WAIT_TIME = 500
 
 function introAnimation (stage, canvasSize, shapes) {
   changeZoom(stage, canvasSize, shapes[6].solarSize)
 }
 
-/*
-options { <--- optional
-  zoomTime: number,
-  waitTime: number,
-  ease: createjs.Ease (Object from TWEENJS)
-}
-*/
+// TODO look into deleting options
 function changeZoom (stage, canvasSize, scale, options) {
   options = options || {}
+  animateEachBody(stage, canvasSize, scale, options)
+}
+
+function animateEachBody (stage, canvasSize, scale, options) {
   stage.children.forEach(function (x) {
     const futureScale = x.calcScaleFromLargestBody(scale)
     if (x.calcScaleFromLargestBody) {
@@ -26,7 +24,7 @@ function changeZoom (stage, canvasSize, scale, options) {
           y: x.cordsFromCenter(500, futureScale)
         }, options.zoomTime || ZOOM_TIME,
         options.ease || createjs.Ease.getPowOut(5))
-        .wait(options.waitTime || WAIT_TIME)
+        // .wait(options.waitTime || WAIT_TIME)
     }
   })
 }
