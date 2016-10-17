@@ -17,7 +17,9 @@ function createACelestialBody (canvasSize, maxSize, bodyInfo) {
     const img = new window.Image()
     img.src = bodyInfo.image
     img.addEventListener('load', function () {
-      body.graphics.beginBitmapFill(img, 'no-repeat').drawRect(0, 0, canvasSize, canvasSize)
+      body.graphics
+        .beginBitmapFill(img, 'no-repeat')
+        .drawRect(0, 0, canvasSize, canvasSize)
     })
   } else {
     body.graphics.beginFill(bodyInfo.color).drawCircle(0, 0, canvasSize / 2)
