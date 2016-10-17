@@ -24,7 +24,7 @@ function MenuButton () {
       type='button'
       data-toggle='dropdown'>
       Zoom To&nbsp;&nbsp;
-      <span className="buttonDisplay glyphicon glyphicon-search" aria-hidden="true"></span>
+      <span className='glyphicon glyphicon-search' aria-hidden='true' />
     </button>
   )
 }
