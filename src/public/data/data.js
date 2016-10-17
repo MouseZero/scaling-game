@@ -3,43 +3,75 @@ module.exports = {
   'rulers': [
     {
       'name': 'Sun',
-      'type': 'thesun',
-      'size': 1,
-      'color': '#f4df42',
-      'image': 'star.png'
+      'size': 864576,
+      'image': 'images/star.png'
     },
     {
       'name': 'Earth',
-      'type': 'earth',
-      'size': 0.0092,
-      'color': '#363',
-      'image': 'earth.png'
+      'size': 7918,
+      'image': 'images/earth.png'
+    },
+    {
+      'name': 'USA',
+      'size': 2800,
+      'image': 'images/us.png'
+    },
+    {
+      'name': 'The Moon',
+      'size': 2158,
+      'image': 'images/moon.png'
+    },
+    {
+      'name': 'California',
+      'size': 840,
+      'image': 'images/cal.png'
+    },
+    {
+      'name': 'The Empire State Building',
+      'size': 0.2367424,
+      'image': 'images/empireState.png'
+    },
+    {
+      'name': 'A Bus',
+      'size': 0.00852273,
+      'image': 'images/bus.png'
+    },
+    {
+      'name': 'A 3rd Grader',
+      'size': 0.000852273,
+      'image': 'images/3rdGrader.png'
+    },
+    {
+      'name': 'A juice Box',
+      'size': 0.000094,
+      'image': 'images/juice.png'
+    },
+    {
+      'name': 'Ant',
+      'size': 0.000006,
+      'image': 'images/ant.png'
     }
   ],
 
   'showcase': [
     {
       'name': 'M',
-      'type': 'star',
-      'size': 0.4,
+      'size': 345830,
       'color': '#fc2859'
     },
     {
       'name': 'F',
-      'type': 'star',
-      'size': 1.3,
+      'size': 1123949,
       'color': '#42a7f4'
     },
     {
       'name': 'B',
-      'type': 'star',
-      'size': 7,
+      'size': 6052032,
       'color': '#42a7f4'
     },
     {
       'name': 'O',
-      'type': 'star',
-      'size': 15,
+      'size': 12968640,
       'color': '#42a7f4'
     }
   ]
