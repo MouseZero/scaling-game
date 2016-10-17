@@ -2,7 +2,7 @@ const createjs = require('createjs-collection')
 const ZOOM_TIME = 2000
 const WAIT_TIME = 500
 
-function sizeCompareAnimation (stage, canvasSize, shapes) {
+function introAnimation (stage, canvasSize, shapes) {
   shapes.reduce(function (promise, shape, i, all) {
     if (i < 7) {
       return promise.then(function () {
@@ -44,5 +44,5 @@ function changeZoom (stage, canvasSize, scale, options) {
   })
 }
 
-module.exports.sizeCompareAnimation = sizeCompareAnimation
+module.exports.introAnimation = introAnimation
 module.exports.changeZoom = changeZoom

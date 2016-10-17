@@ -6,7 +6,7 @@ const TICKER_NAME = 'tick'
 function newScene (stage, canvasSize, celestialBodyData) {
   const bodies = createCelestialBody(canvasSize, celestialBodyData.bodies)
   placeBodies(stage, bodies)
-  animation.sizeCompareAnimation(stage, canvasSize, bodies)
+  animation.introAnimation(stage, canvasSize, bodies)
 
   createjs.Ticker.setFPS(30)
   createjs.Ticker.addEventListener(TICKER_NAME, stage)
