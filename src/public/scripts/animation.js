@@ -11,8 +11,7 @@ function introAnimation (stage, canvasSize, shapes) {
 // TODO look into deleting options
 function changeZoom (stage, canvasSize, scale, options) {
   options = options || {}
-  const speed = numberOfBodiesBetween(lastZoomScale, scale, stage) * 1500
-  options.zoomTime = options.zoomTime || speed
+  options.zoomTime = numberOfBodiesBetween(lastZoomScale, scale, stage) * 1500
   if (lastZoomScale > scale) {
     options.ease = createjs.Ease.getPowIn(8)
   } else {
