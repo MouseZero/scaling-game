@@ -1,5 +1,4 @@
 #Get started
-I don't know if the reader of this is familiar with the Node stack so I'm going to error on the side of more explicit with these instructions.
 - NodeJS must be installed on you computer
 - Open the projects root dir in your computers command line
   - root has the "src" and "package.json" files/folders in it

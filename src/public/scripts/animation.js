@@ -1,5 +1,5 @@
 const createjs = require('createjs-collection')
-const ZOOM_TIME = 2100
+const ZOOM_TIME = 1700
 var lastZoomScale
 
 function introAnimation (stage, canvasSize, shapes) {
@@ -12,9 +12,9 @@ function changeZoom (stage, canvasSize, scale, options) {
   options = options || {}
   options.zoomTime = numberOfBodiesBetween(lastZoomScale, scale, stage) * ZOOM_TIME
   if (lastZoomScale > scale) {
-    options.ease = createjs.Ease.getPowIn(6)
+    options.ease = createjs.Ease.getPowIn(8)
   } else {
-    options.ease = createjs.Ease.getPowOut(6)
+    options.ease = createjs.Ease.getPowOut(8)
   }
   animateEachBody(stage, canvasSize, scale, options)
   lastZoomScale = scale
