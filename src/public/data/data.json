@@ -1,64 +1,64 @@
 {
-  "gbodies": [
+  "bodies": [
     {
-      "gname": "Test Star",
-      "gsize": 15968640,
-      "gcolor": "#4233f4"
+      "name": "Test Star",
+      "size": 15968640,
+      "color": "#4233f4"
     },
     {
-      "gname": "Star O",
-      "gsize": 12968640,
-      "gimage": "images/star3.png"
+      "name": "Star O",
+      "size": 12968640,
+      "image": "images/star3.png"
     },
     {
-      "gname": "Star B",
-      "gsize": 6052032,
-      "gimage": "images/star2.png"
+      "name": "Star B",
+      "size": 6052032,
+      "image": "images/star2.png"
     },
     {
-      "gname": "Star F",
-      "gsize": 1123949,
-      "gimage": "images/star1.png"
+      "name": "Star F",
+      "size": 1123949,
+      "image": "images/star1.png"
     },
     {
-      "gname": "Sun",
-      "gsize": 864576,
-      "gimage": "images/star.png"
+      "name": "Sun",
+      "size": 864576,
+      "image": "images/star.png"
     },
     {
-      "gname": "Earth",
-      "gsize": 7918,
-      "gimage": "images/earth.png"
+      "name": "Earth",
+      "size": 7918,
+      "image": "images/earth.png"
     },
     {
-      "gname": "The Moon",
-      "gsize": 2158,
-      "gimage": "images/moon.png"
+      "name": "The Moon",
+      "size": 2158,
+      "image": "images/moon.png"
     },
     {
-      "gname": "Empire St Building",
-      "gsize": 0.2367424,
-      "gimage": "images/empireState.png"
+      "name": "Empire St Building",
+      "size": 0.2367424,
+      "image": "images/empireState.png"
     },
     {
-      "gname": "Bus",
-      "gsize": 0.00852273,
-      "gimage": "images/bus.png"
+      "name": "Bus",
+      "size": 0.00852273,
+      "image": "images/bus.png"
     },
     {
-      "gname": "3rd Grader",
-      "gsize": 0.000852273,
-      "gimage": "images/3rdGrader.png"
+      "name": "3rd Grader",
+      "size": 0.000852273,
+      "image": "images/3rdGrader.png"
     },
     {
-      "gname": "juice Box",
-      "gsize": 0.000094,
-      "gimage": "images/juice.png"
+      "name": "juice Box",
+      "size": 0.000094,
+      "image": "images/juice.png"
     },
     {
-      "gname": "Ant",
-      "gsize": 0.000006,
-      "gimage": "images/ant.png"
+      "name": "Ant",
+      "size": 0.000006,
+      "image": "images/ant.png"
     }
   ]
 }

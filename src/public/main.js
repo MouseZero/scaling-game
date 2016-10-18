@@ -1,6 +1,6 @@
 const createMenu = require('./scripts/menu')
 const newScene = require('./scripts/gameScene').newScene
-const celestialBodyData = require('./data/data')
+const celestialBodyData = require('./data/data.json')
 const changeZoom = require('./scripts/animation').changeZoom
 const curry = require('lodash.curry')
 const createjs = require('createjs-collection')
