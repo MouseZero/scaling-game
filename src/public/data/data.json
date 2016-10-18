@@ -1,0 +1,64 @@
+{
+  "gbodies": [
+    {
+      "gname": "Test Star",
+      "gsize": 15968640,
+      "gcolor": "#4233f4"
+    },
+    {
+      "gname": "Star O",
+      "gsize": 12968640,
+      "gimage": "images/star3.png"
+    },
+    {
+      "gname": "Star B",
+      "gsize": 6052032,
+      "gimage": "images/star2.png"
+    },
+    {
+      "gname": "Star F",
+      "gsize": 1123949,
+      "gimage": "images/star1.png"
+    },
+    {
+      "gname": "Sun",
+      "gsize": 864576,
+      "gimage": "images/star.png"
+    },
+    {
+      "gname": "Earth",
+      "gsize": 7918,
+      "gimage": "images/earth.png"
+    },
+    {
+      "gname": "The Moon",
+      "gsize": 2158,
+      "gimage": "images/moon.png"
+    },
+    {
+      "gname": "Empire St Building",
+      "gsize": 0.2367424,
+      "gimage": "images/empireState.png"
+    },
+    {
+      "gname": "Bus",
+      "gsize": 0.00852273,
+      "gimage": "images/bus.png"
+    },
+    {
+      "gname": "3rd Grader",
+      "gsize": 0.000852273,
+      "gimage": "images/3rdGrader.png"
+    },
+    {
+      "gname": "juice Box",
+      "gsize": 0.000094,
+      "gimage": "images/juice.png"
+    },
+    {
+      "gname": "Ant",
+      "gsize": 0.000006,
+      "gimage": "images/ant.png"
+    }
+  ]
+}

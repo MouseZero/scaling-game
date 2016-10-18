@@ -4,9 +4,12 @@
   "description": "This is a program that give the user and idea of how big different types of stars are when compared to the earth and sun.",
   "main": "index.js",
   "scripts": {
-    "build": "mkdir -p ./dist/public && mkdir -p ./dist/public/images && npm run build:images && npm run build:html && npm run build:css && webpack",
+    "build": "npm run build:mk-dirs && npm run build:moveFiles && webpack",
+    "build:mk-dirs": "mkdir -p ./dist/public && mkdir -p ./dist/public/images && mkdir -p ./dist/public/data",
+    "build:moveFiles": "npm run build:html && npm run build:css && npm run build:json && npm run build:images",
     "build:html": "cp ./src/public/*.html ./dist/public/",
     "build:css": "cp ./src/public/*.css ./dist/public/",
+    "build:json": "cp ./src/public/data/*.json ./dist/public/data/",
     "build:images": "cp ./src/public/images/*.png ./dist/public/images/",
     "webpack": "webpack",
     "webpack:watch": "webpack --watch",
