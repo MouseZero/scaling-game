@@ -2,7 +2,7 @@ module.exports = {
 
   'bodies': [
     {
-      'name': 'Test Star No Image',
+      'name': 'Test Star',
       'size': 15968640,
       'color': '#4233f4'
     },
@@ -37,22 +37,22 @@ module.exports = {
       'image': 'images/moon.png'
     },
     {
-      'name': 'The Empire State Building',
+      'name': 'Empire St Building',
       'size': 0.2367424,
       'image': 'images/empireState.png'
     },
     {
-      'name': 'A Bus',
+      'name': 'Bus',
       'size': 0.00852273,
       'image': 'images/bus.png'
     },
     {
-      'name': 'A 3rd Grader',
+      'name': '3rd Grader',
       'size': 0.000852273,
       'image': 'images/3rdGrader.png'
     },
     {
-      'name': 'A juice Box',
+      'name': 'juice Box',
       'size': 0.000094,
       'image': 'images/juice.png'
     },

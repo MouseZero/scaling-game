@@ -31,20 +31,18 @@ function MenuButton () {
 
 function MenuDropdown (props) {
   return (
-    <ul className='dropdown-menu'>
+    <div className='dropdown-menu col-md-3 col-sm-12 col-xs-12'>
       {props.bodyData.map((x, i) =>
-        <div key={i}>
-          <Item data={x} bodyId={i} zoom={props.zoom} />
-        </div>
+        <Item key={i} data={x} bodyId={i} zoom={props.zoom} />
       )}
-    </ul>
+    </div>
   )
 }
 
 function Item (props) {
   return (
-    <li onClick={() => {
+    <div className='col-md-12 col-sm-6 col-xs-6' onClick={() => {
       props.zoom(props.data.size, {})
-    }}>{props.data.name}</li>
+    }}>{props.data.name}</div>
   )
 }
