@@ -19,5 +19,13 @@
 - src/public/main.js
   - The entry point for my JavaScript
     
-## Data File
-- If you change the "data.json" you will need to transpile the code again. From the root dir use ```npm run build```
+## Custom Data
+The custom data is in JSON format. Change the following file to add you own data "src/public/data/data.json". When this file is changed you will have to run ```npm run build``` before the changes will take effect.
+```
+{
+  "name": "Name to be displayed in menu",
+  "size": "This can be any unit of measure as long as it is consistent with all objects. I use miles",
+  "image": "Path to image"
+}
+```
+See the default file for more examples
