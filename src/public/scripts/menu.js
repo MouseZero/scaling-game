@@ -32,7 +32,7 @@ function MenuButton () {
 function MenuDropdown (props) {
   return (
     <div className='dropdown-menu col-md-3 col-sm-12 col-xs-12'>
-      {props.bodyData.map((x, i) =>
+      {props.bodyData.reverse().map((x, i) =>
         <Item key={i} data={x} bodyId={i} zoom={props.zoom} />
       )}
     </div>

@@ -11,3 +11,8 @@
   font-size: 2em;
   cursor: pointer;
 }
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.56);
+  color: white;
+}

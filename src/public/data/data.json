@@ -1,22 +1,22 @@
 {
   "bodies": [
     {
-      "name": "Test Star",
+      "name": "Star (No Image)",
       "size": 15968640,
-      "color": "#4233f4"
+      "color": "#f442f4"
     },
     {
-      "name": "Star O",
+      "name": "Star 3",
       "size": 12968640,
       "image": "images/star3.png"
     },
     {
-      "name": "Star B",
+      "name": "Star 2",
       "size": 6052032,
       "image": "images/star2.png"
     },
     {
-      "name": "Star F",
+      "name": "Star 1",
       "size": 1123949,
       "image": "images/star1.png"
     },
@@ -36,7 +36,7 @@
       "image": "images/moon.png"
     },
     {
-      "name": "Empire St Building",
+      "name": "Empire St. Building",
       "size": 0.2367424,
       "image": "images/empireState.png"
     },
@@ -51,7 +51,7 @@
       "image": "images/3rdGrader.png"
     },
     {
-      "name": "juice Box",
+      "name": "Juice Box",
       "size": 0.000094,
       "image": "images/juice.png"
     },
