@@ -5,12 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "npm run build:mk-dirs && npm run build:moveFiles && webpack",
-    "build:mk-dirs": "mkdir -p ./dist/public && mkdir -p ./dist/public/images",
-    "build:moveFiles": "npm run build:html && npm run build:css && npm run build:images",
-    "build:html": "cp ./src/public/*.html ./dist/public/",
-    "build:css": "cp ./src/public/*.css ./dist/public/",
-    "build:images": "cp ./src/public/images/*.png ./dist/public/images/",
+    "build": "webpack",
     "webpack": "webpack",
     "webpack:watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
