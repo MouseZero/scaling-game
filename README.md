@@ -12,14 +12,14 @@
   - The page should show up.
   
 ## File Locations
-- src/public/index.html
+- public/index.html
   - Start page
-- src/public/data/data.json
+- src/data/data.json
   - Data that the app uses to create game objects
-- src/public/main.js
+- src/main.js
   - The entry point for my JavaScript
     
-## Custom Data
+## Custom Data (src/data/data.json)
 The custom data is in JSON format. Change the following file to add you own data "src/public/data/data.json". When this file is changed you will have to run ```npm run build``` before the changes will take effect.
 ```
 {
