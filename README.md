@@ -20,7 +20,7 @@
   - The entry point for my JavaScript
     
 ## Custom Data (src/data/data.json)
-The custom data is in JSON format. Change the following file to add you own data "src/public/data/data.json". When this file is changed you will have to run ```npm run build``` before the changes will take effect.
+The custom data is in JSON format. Change the following file to add you own data "src/public/data/data.json". When this file is changed you will have to run ```npm run build``` before the changes will take effect. Images should be 1000x1000 pixals.
 ```
 {
   "name": "Name to be displayed in menu",
