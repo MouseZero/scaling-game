@@ -8,7 +8,8 @@ app.all('/', function (req, res, next) {
   next()
 })
 
-app.use(express.static(path.join(__dirname, 'dist', 'public')))
+app.use("/", express.static(path.join(__dirname, 'public')))
+app.use("/assests/js/", express.static(path.join(__dirname, 'dist', 'js')))
 
 const port = process.argv[2] || 8000
 app.listen(port)
